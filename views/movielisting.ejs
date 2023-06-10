@@ -11,14 +11,18 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <form action="">
+    <form action="/movie/datasubmited" method="post" enctype="multipart/form-data">
       <div class="maincontainer">
         <div class="box">
 
 
           <div class="headingdiv">
-            <div><img src="/images/logo.png" class="image" ></div>
-            <div class="heading">List Your Show</div> 
+            <div style="display: flex;">
+                <div><img src="/images/logo.png" class="image" ></div>
+                <div class="heading">List Your Show</div> 
+            </div>
+            <div>
+              <a href="/movie/fetch_all_show"><img src="/images/display.png" width="40px"></a></div>
           </div>
 
 
@@ -26,12 +30,12 @@
 
             <div class="row gap">
               <div class="col-md-6">
-                <select required class="form-select" name="stateid" aria-label="Default select example" id="producttypeid">
+                <select required class="form-select" name="stateid" aria-label="Default select example" id="stateid">
                   <option selected>-Select State-</option>
                 </select>
               </div>
               <div class="col-md-6">
-                <select required class="form-select" name="cityid" aria-label="Default select example" id="productcategoryid">
+                <select required class="form-select" name="cityid" aria-label="Default select example" id="cityid">
                   <option selected>-Select City-</option>
                 </select>
               </div>
@@ -39,13 +43,13 @@
 
             <div class="row gap">
               <div class="col-md-6">
-                <select required class="form-select" name="cinemaid" aria-label="Default select example" id="producttypeid">
+                <select required class="form-select" name="cinemaid" aria-label="Default select example" id="cinemaid">
                   <option selected>-Select Cinema-</option>
                 </select>
               </div>
               <div class="col-md-6">
-                <select required class="form-select" name="screenid" aria-label="Default select example" id="productcategoryid">
-                  <option selected>-Select screen-</option>
+                <select required class="form-select" name="screenid" aria-label="Default select example" id="screenid">
+                  <option selected>-Select Screen-</option>
                 </select>
               </div>
             </div>
@@ -88,7 +92,7 @@
             
             <div class="row  gap">
               <div class="col-md-12" style="color:#fff;font-family: 'Nunito Sans', sans-serif;letter-spacing: 1;">
-                   
+                   <%=message%>
               </div>
             </div>
 
@@ -98,3 +102,5 @@
     </form>
   </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="/javascripts/script.js"></script>
