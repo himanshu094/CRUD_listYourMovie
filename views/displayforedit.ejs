@@ -19,7 +19,7 @@
           <div class="headingdiv">
             <div class="left-heading">
                 <div><img src="/images/logo.png" class="image" ></div>
-                <div class="heading">List Your Show</div> 
+                <div class="heading">Update Your Show</div> 
             </div>
             <div>
               <a href="/movie/fetch_all_show"><button class="btn btn-primary" type="button">View All Show</button></a></div>
@@ -31,12 +31,12 @@
             <div class="row gap">
               <div class="col-md-6">
                 <select required class="form-select" name="stateid" aria-label="Default select example" id="stateid">
-                  <option selected>-Select State-</option>
+                  <option selected value="<%=data.stateid%>"><%=data.statename%></option>
                 </select>
               </div>
               <div class="col-md-6">
                 <select required class="form-select" name="cityid" aria-label="Default select example" id="cityid">
-                  <option selected>-Select City-</option>
+                  <option selected value="<%=data.cityid%>"><%=data.cityname%></option>
                 </select>
               </div>
             </div>
@@ -44,23 +44,23 @@
             <div class="row gap">
               <div class="col-md-6">
                 <select required class="form-select" name="cinemaid" aria-label="Default select example" id="cinemaid">
-                  <option selected>-Select Cinema-</option>
+                  <option selected value="<%=data.cinemaid%>"><%=data.cinemaname%></option>
                 </select>
               </div>
               <div class="col-md-6">
                 <select required class="form-select" name="screenid" aria-label="Default select example" id="screenid">
-                  <option selected>-Select Screen-</option>
+                  <option selected value="<%=data.screenid%>"><%=data.screenname%></option>
                 </select>
               </div>
             </div>
 
             <div class="row gap">
               <div class="col-md-6">
-                <input required type="text" class="form-control" placeholder="Movie Name" name="moviename">           
+                <input required type="text" class="form-control" placeholder="Movie Name" name="moviename" value="<%=data.moviename%>">           
               </div>
               <div class="col-md-6">
                 <select required class="form-select" name="status" aria-label="Default select example" id="productcategoryid">
-                  <option selected>-Select Status-</option>
+                  <option selected ><%=data.status%></option>
                   <option>Running</option>
                   <option>Comming soon</option>
                   <option>Discontinue</option>
@@ -70,35 +70,24 @@
 
             <div class="row  gap">
               <div class="col-md-12">
-                <input required type="text" class="form-control" placeholder="Description" name="description">
+                <input required type="text" class="form-control" placeholder="Description" name="description" value="<%=data.description%>">
               </div>
             </div>
 
             <div class="row gap">
-                <div class="col-md-12">
-                  <label for="formFile" class="form-label">Upload Movie Poster</label>
-                  <input required class="form-control" type="file" id="formFile" name="poster">
-                </div>
-            </div>
-
-            <div class="row gap">
               <div class="col-md-6">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
               </div>
               <div class="col-md-6">
-                <button type="reset" class="btn btn-primary">Reset</button>
+                <button type="reset" class="btn btn-primary">Delete</button>
               </div>
             </div>
             
-            <div class="row  gap">
-              <div class="col-md-12" style="color:#fff;font-family: 'Nunito Sans', sans-serif;letter-spacing: 1;">
-                   <%=message%>
-              </div>
-            </div>
+          </div>
 
         </div>
-        </div>
       </div>
+      
     </form>
   </body>
 </html>

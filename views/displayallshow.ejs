@@ -13,11 +13,20 @@
 
 
         <div class="headingdiv">
-          <div style="display: flex;">
-          <div><img src="/images/logo.png" class="image" ></div>
-          <div class="heading">All Show</div> 
-        </div>
-        <div><a href="/movie/listyourshow"><img src="/images/add.png" width="40px"></a></div>
+
+          <div class="left-heading">
+            <div><img src="/images/logo.png" class="image" ></div>
+            <div class="heading">All Show</div> 
+          </div>
+
+          <div>
+            <a href="/movie/listyourshow">
+              <button class="btn btn-primary" value="button">
+                <span style="font-size:18px;">&oplus;</span> Add New Show
+              </button>
+            </a>
+          </div>
+
         </div>
 
           <%if(data.length==0){%>
@@ -25,29 +34,34 @@
           <%}else{%>
           
         <div>    
-          <table class="table table-sm">  
+          <table class="table table-striped-columns">  
             <tr>
               <th>#</th>
-              <th>[Movie Id] Movie Name</th>
-              <th>State ID</th>
-              <th>City ID</th>
-              <th>Cinema ID</th>
-              <th>Screen ID</th> 
-              <th>Description</th>
-              <th>Status</th>
+              <th width="13%">[Movie Id] <br> Movie Name</th>
+              <th width="10%">State</th>
+              <th>City</th>
+              <th>Cinema</th>
+              <th width="12%">LOGO <br>Screen</th> 
+              <th width="15%">Description</th>
+              <th width="10%">Status</th>
               <th>Poster</th>
+              <th colspan="2" >Action</th>
             </tr>
 
           <%data.map((item,i)=>{%>
-          <tr><td><%=i+1%></td>
-          <td>[<%=item.movieid%>] <%=item.moviename%></td>
-          <td><%=item.stateid%></td>
-          <td><%=item.cityid%></td>
-          <td><%=item.cinemaid%></td>
-          <td><%=item.screenid%></td>
+        <tr>
+            <td><%=i+1%></td>
+          <td>[<%=item.movieid%>]<br> <b><%=item.moviename%></b></td>
+          <td><%=item.statename%></td>
+          <td><%=item.cityname%></td>
+          <td><b><%=item.cinemaname%></b></td>
+          <td><img src="/images/<%=item.cinemalogo%>" width="35px"><br><%=item.screenname%></td>
           <td><%=item.description%></td>
           <td><%=item.status%></td>  
-          <td><img src="/images/<%=item.poster%>" class="mposter"></td></tr>  
+          <td><img src="/images/<%=item.poster%>" class="mposter"></td>
+          <td><a href="/movie/displayforedit?movieid=<%=item.movieid%>"><button class="btn btn-primary">Edit</button></a></td>
+          <td><button class="btn btn-primary">Delete</button></td>
+        </tr> 
           <%})%>
           <%}%> 
           </table> 

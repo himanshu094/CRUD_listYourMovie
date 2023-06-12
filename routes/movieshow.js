@@ -110,11 +110,12 @@ router.get('/fetch_screen',function(req,res){
 
 router.get("/fetch_all_show",function(req,res){
   try{
-    pool.query('select * from movies',function(error,result){
+    pool.query('select M.*,(select S.statename from state S where S.stateid=M.stateid) as statename, (select C.cityname from city C where C.cityid=M.cityid) as cityname,(select CI.cinemaname from cinema CI where CI.cinemaid=M.cinemaid) as cinemaname,(select CI.cinemalogo from cinema CI where CI.cinemaid=M.cinemaid) as cinemalogo,(select SC.screenname from screen SC where SC.screenid=M.screenid) as screenname from movies M',function(error,result){
       if(error){
         console.log("Dabase Error",error);
         res.render('displayallshow',{data:[],message:'database error'})
       }else{
+        // console.log("Dabase result",result);
         res.render('displayallshow',{data:result})
       }
 
@@ -124,6 +125,26 @@ router.get("/fetch_all_show",function(req,res){
   {
     console.log("Error",e);
     req.render("displayallshow",{data:[],message:'server error'})
+  }
+})
+
+router.get("/displayforedit",function(req,res){
+  try{
+    pool.query('select M.*,(select S.statename from state S where S.stateid=M.stateid) as statename, (select C.cityname from city C where C.cityid=M.cityid) as cityname,(select CI.cinemaname from cinema CI where CI.cinemaid=M.cinemaid) as cinemaname,(select CI.cinemalogo from cinema CI where CI.cinemaid=M.cinemaid) as cinemalogo,(select SC.screenname from screen SC where SC.screenid=M.screenid) as screenname from movies M where M.movieid=?',[req.query.movieid],function(error,result){
+      if(error){
+        console.log("Dabase Error",error);
+        res.render('displayforedit',{data:[],message:'database error'})
+      }else{
+        // console.log("Dabase result",result);
+        res.render('displayforedit',{data:result[0],message:'Success'})
+      }
+
+    })
+  }
+  catch(e)
+  {
+    console.log("Error",e);
+    req.render("displayforedit",{data:[],message:'server error'})
   }
 })
 

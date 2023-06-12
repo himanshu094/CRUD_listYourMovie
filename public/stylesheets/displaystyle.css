@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+/* ?  div style -----------------------------------------------=============*/
 
 .maincontainer{
   background-image: url(/images/background.jpg);
@@ -21,11 +22,12 @@
   background: transparent;
   box-shadow: 0 0 30px rgba(0,0,0,.5);
   width: 80%;
-  height: 75%;
+  height: 90%;
   /* box-shadow: 1px 1px 8px 2px #d20795; */
   /* box-shadow: 1px 1px 8px 2px #337fd7; */
-  border-radius: 0px;
-  padding-inline: 40px;
+  border-radius: 10px;
+
+  padding-inline: 35px;
   padding-block: 30px;
   display: flex;
   flex-direction: column;
@@ -39,11 +41,13 @@
   gap: 10px;
  justify-content: space-between;
 }
-
-.image{
-  width: 30px;
-  
+.left-heading
+{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+
 .heading{
   font-family: 'Nunito Sans', sans-serif;
   font-size: 26px;
@@ -51,35 +55,10 @@
   color: #000;
   letter-spacing: 1;
 }
-
-.gap{
-  margin-bottom: 7px;
-}
-.gap:last-child{
-  margin-bottom: 0;
-}
-.btn{
-  width: 100%;
-  background-color: #162938;
-  cursor: pointer;
-  border: 1px solid black;
-}
-.btn:hover{
-  background-color: rgba(255, 255, 255,0.5);
-  color: #000000;
-  box-shadow: 2px 2px 10px 5px #162938;
-  border: 1px solid black;
-}
-.btn:active{
-  background-color: #162938 !important;
-  border: #000000 !important;
-}
-.form-label{
-  color: #000;
-  font-size: 18px;
-  font-weight: bolder;
-  font-family: 'Nunito Sans', sans-serif;
-  letter-spacing: 1;
+/* ?  other style -----------------------------------------------=============*/
+.image{
+  width: 30px;
+  
 }
 
 .table th,.table td{
@@ -94,6 +73,41 @@
   
 }
 
-a:hover{
+.ancor:hover{
   box-shadow: 5px 5px 30px 5px #660707;
+}
+
+/* ?  scrollbar style -----------------------------------------------=============*/
+
+::-webkit-scrollbar{
+  width: 13px;
+  
+}
+::-webkit-scrollbar-track{
+  background: #d1e5ff;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  /* background: linear-gradient(#6ACEC1 , #8429CB); */
+  background: #777;
+  border-radius: 10px;
+}
+
+/* ?  botton style -----------------------------------------------=============*/
+
+.btn{
+  
+  background-color: #162938;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.btn:hover{
+  background-color: rgba(255, 255, 255,0.5);
+  color: #000000;
+  box-shadow: 2px 2px 10px 5px #162938;
+  border: 1px solid black;
+}
+.btn:active{
+  background-color: #162938 !important;
+  border: #000000 !important;
 }

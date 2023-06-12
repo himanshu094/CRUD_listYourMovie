@@ -47,12 +47,23 @@
   gap: 10px;
   justify-content: space-between;
 }
+
+.left-heading
+{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .gap{
   margin-bottom: 7px;
 }
 .gap:last-child{
   margin-bottom: 0;
 }
+
+/* ?  botton style */
+
 .btn{
   width: 100%;
   background-color: #162938;
@@ -77,6 +88,6 @@
   letter-spacing: 1;
 }
 
-a:hover{
+/* a:hover{
   box-shadow: 5px 5px 30px 5px #660707;
-}
+} */
