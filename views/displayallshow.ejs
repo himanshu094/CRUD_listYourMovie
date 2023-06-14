@@ -58,9 +58,16 @@
           <td><img src="/images/<%=item.cinemalogo%>" width="35px"><br><%=item.screenname%></td>
           <td><%=item.description%></td>
           <td><%=item.status%></td>  
-          <td><img src="/images/<%=item.poster%>" class="mposter"></td>
-          <td><a href="/movie/displayforedit?movieid=<%=item.movieid%>"><button class="btn btn-primary">Edit</button></a></td>
-          <td><a href="/movie/delete_show?movieid=<%=item.movieid%>"><button class="btn btn-primary">Delete</button></a></td>
+          <td>
+            <img src="/images/<%=item.poster%>" class="mposter"><br>
+            <a href="/movie/display_poster_for_edit?movieid=<%=item.movieid%>&moviename=<%=item.moviename%>&poster=<%=item.poster%>" class="editpic">Edit Poster</a>
+          </td>
+          <td>
+            <a href="/movie/displayforedit?movieid=<%=item.movieid%>"><button class="btn btn-primary">Edit</button></a>
+          </td>
+          <td>
+            <a href="/movie/delete_show?movieid=<%=item.movieid%>"><button class="btn btn-primary">Delete</button></a>
+          </td>
         </tr> 
           <%})%>
           <%}%> 

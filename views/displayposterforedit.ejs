@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>BookMyShow</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action="/movie/edit_poster" method="post" enctype="multipart/form-data">
+
+      <div class="maincontainer">
+        <div class="box">
+
+
+          <div class="headingdiv">
+            <div class="left-heading">
+                <div><img src="/images/logo.png" class="image" ></div>
+                <div class="heading">Update Your Poster</div> 
+            </div>
+            <div>
+              <a href="/movie/fetch_all_show"><button class="btn btn-primary" type="button">View All Show</button></a></div>
+          </div>
+
+
+          <div class="formDiv">
+
+            
+            <div class="row  gap">
+              <div class="col-md-12">
+                <h2 style="text-align: center;">Movie Name: <%=data.moviename%></h2>
+              </div>
+            </div>
+
+            <div class="row  gap">
+              <div class="col-md-12">
+                <center><img src="/images/<%=data.poster%>" width="150px" height="210px" ></center>
+              </div>
+            </div>
+
+            <div class="heading">Select New Poster</div> 
+            
+            <div class="row  gap">
+              <div class="col-md-12">
+                <input required type="file" class="form-control"  name="movieposter" required>
+              </div>
+            </div>
+
+            <div class="row gap">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+             
+            </div>
+            
+          </div>
+
+        </div>
+      </div>
+      
+      <input type="hidden" name="oldfilename" value="<%=data.poster%>" >
+      <input type="hidden" name="movieid" value="<%=data.movieid%>">
+    </form>
+  </body>
+</html>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="/javascripts/script.js"></script>

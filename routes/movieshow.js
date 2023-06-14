@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const pool=require('./pool');
 const upload=require('./multer');
+const fs=require("fs")
 
 /* GET movielisting page. */
 router.get('/listyourshow', function(req, res, next) {
@@ -181,6 +182,33 @@ router.get('/delete_show',function(req,res){
       }
       else
       {
+        res.redirect('/movie/fetch_all_show'); 
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log("Error:",e);
+    res.redirect('/movie/fetch_all_show')
+  }
+})
+
+router.get("/display_poster_for_edit",function(req,res){
+  res.render("displayposterforedit",{data:req.query})
+})
+
+
+router.post('/edit_poster',upload.single('movieposter'),function(req,res){
+  try{
+    pool.query("update movies set poster=? where movieid=?", [req.file.filename,req.body.movieid],function(error,result){
+      if(error)
+      {
+        console.log("D Error",error);
+        res.redirect('/movie/fetch_all_show');
+      }
+      else
+      {
+       // fs.unlink(`/images/${req.body.oldfilename}`)
         res.redirect('/movie/fetch_all_show'); 
       }
     })

@@ -114,3 +114,14 @@ th{
   background-color: #162938 !important;
   border: #000000 !important;
 }
+.editpic{
+  font-size: 8px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: yellow;
+}
+.editpic:hover{
+  font-size: 8px;
+  color: red;
+}
