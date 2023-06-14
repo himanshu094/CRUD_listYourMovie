@@ -60,6 +60,9 @@
   width: 30px;
   
 }
+th{
+  text-align: center;
+}
 
 .table th,.table td{
   background: transparent ;

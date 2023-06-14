@@ -171,4 +171,25 @@ router.post('/edit_movie',function(req,res){
   }
 })
 
+router.get('/delete_show',function(req,res){
+  try{
+    pool.query("delete from movies where movieid=?", [req.query.movieid],function(error,result){
+      if(error)
+      {
+        console.log("D Error",error);
+        res.redirect('/movie/fetch_all_show');
+      }
+      else
+      {
+        res.redirect('/movie/fetch_all_show'); 
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log("Error:",e);
+    res.redirect('/movie/fetch_all_show')
+  }
+})
+
 module.exports = router;

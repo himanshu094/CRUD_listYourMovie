@@ -45,7 +45,7 @@
               <th width="15%">Description</th>
               <th width="10%">Status</th>
               <th>Poster</th>
-              <th colspan="2" >Action</th>
+              <th colspan="2" " >Action</th>
             </tr>
 
           <%data.map((item,i)=>{%>
@@ -60,7 +60,7 @@
           <td><%=item.status%></td>  
           <td><img src="/images/<%=item.poster%>" class="mposter"></td>
           <td><a href="/movie/displayforedit?movieid=<%=item.movieid%>"><button class="btn btn-primary">Edit</button></a></td>
-          <td><button class="btn btn-primary">Delete</button></td>
+          <td><a href="/movie/delete_show?movieid=<%=item.movieid%>"><button class="btn btn-primary">Delete</button></a></td>
         </tr> 
           <%})%>
           <%}%> 
