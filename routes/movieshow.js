@@ -32,6 +32,7 @@ router.post('/datasubmited',upload.single('poster'),function(req,res){
   }
 })
 
+
 router.get('/fetch_state',function(req,res){
   try{
     pool.query('select * from state',function(error,result){
@@ -145,6 +146,28 @@ router.get("/displayforedit",function(req,res){
   {
     console.log("Error",e);
     req.render("displayforedit",{data:[],message:'server error'})
+  }
+})
+
+router.post('/edit_movie',function(req,res){
+  try{
+    pool.query("update movies set stateid=?, cityid=?, cinemaid=?, screenid=?, moviename=?, description=?, status=? where movieid=?",
+    [req.body.stateid, req.body.cityid, req.body.cinemaid, req.body.screenid, req.body.moviename, req.body.description, req.body.status,req.body.movieid],function(error,result){
+      if(error)
+      {
+        console.log("D Error",error);
+        res.redirect('/movie/fetch_all_show');
+      }
+      else
+      {
+        res.redirect('/movie/fetch_all_show'); 
+      }
+    })
+  }
+  catch(e)
+  {
+    console.log("Error:",e);
+    res.redirect('/movie/fetch_all_show')
   }
 })
 

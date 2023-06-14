@@ -11,7 +11,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <form action="/movie/datasubmited" method="post" enctype="multipart/form-data">
+    <form action="/movie/edit_movie" method="post" >
+      <input type="hidden" name="movieid" value="<%=data.movieid%>">
       <div class="maincontainer">
         <div class="box">
 
@@ -75,12 +76,12 @@
             </div>
 
             <div class="row gap">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Update</button>
               </div>
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                 <button type="reset" class="btn btn-primary">Delete</button>
-              </div>
+              </div> -->
             </div>
             
           </div>
