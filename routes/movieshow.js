@@ -207,8 +207,9 @@ router.post('/edit_poster',upload.single('movieposter'),function(req,res){
         res.redirect('/movie/fetch_all_show');
       }
       else
-      {
-       // fs.unlink(`/images/${req.body.oldfilename}`)
+      { 
+
+        fs.unlinkSync(`public/images/${req.body.oldfilename}`)
         res.redirect('/movie/fetch_all_show'); 
       }
     })
