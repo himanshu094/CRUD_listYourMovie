@@ -1,0 +1,120 @@
+<head>
+  <script src="https://kit.fontawesome.com/b75aa8c07d.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+/*   box style ----------------------------------------------=======-=============*/
+.maincontainer{
+    display: flex;
+    gap:10px;
+    background-color: #eee;
+    height: 100%;
+    width: 100%;
+}
+body{
+  position: relative;
+}
+.heading{
+  background:linear-gradient( to right bottom,#f9768e , #fe998b);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding-inline:60px ;
+}
+.box{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.left-col{
+  width: 20vw;
+  padding-top: 11vh;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-inline: 20px;
+  padding-top: 80px;
+
+}
+.right-col{
+  background-color: #fff;
+  width: 79vw;
+  height: 88vh;
+  margin-top: 12vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  border-radius:3px;
+}
+a{
+  text-decoration: none;
+  color: #212121;
+}
+a:hover{
+  background-color: rgba(214, 214, 214, .7);
+  color: #d14e4e;
+}
+a:active{
+  background-color: rgba(214, 214, 214, .7);
+  color: #212121;
+}
+.link{
+  width: 100%;
+  height: 30px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 15px;
+}
+</style>
+
+<body>
+  <div class="maincontainer">
+
+    <div class="heading">
+      <img src="/images/bookmyshow.png" height="65px">
+    </div>
+
+    <div class="box">
+
+      <div class="left-col">
+        <a href="#" >
+          <div class="link">Dashboard
+            <i class="fa-solid fa-house"></i>
+          </div>
+        </a>
+        <a href="/movie/listyourshow" target="frame">
+          <div class="link">
+            List Your Show
+            <i class="fa-solid fa-circle-plus"></i>
+          </div>
+        </a>
+        <a href="/movie/fetch_all_show" target="frame">
+          <div class="link">
+            Display All Show
+            <i class="fa-solid fa-display"></i>
+            
+          </div>
+        </a>
+      </div>
+
+      <div class="right-col">
+         <iframe src="" frameborder="0" name="frame" width="100%" height="100%"></iframe>
+      </div>
+
+    </div>
+  </div>
+</body>

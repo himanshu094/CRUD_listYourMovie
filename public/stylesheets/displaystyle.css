@@ -21,7 +21,7 @@
   backdrop-filter: blur(20px);
   background: transparent;
   box-shadow: 0 0 30px rgba(0,0,0,.5);
-  width: 80%;
+  width: 90%;
   height: 90%;
   /* box-shadow: 1px 1px 8px 2px #d20795; */
   /* box-shadow: 1px 1px 8px 2px #337fd7; */
@@ -83,7 +83,7 @@ th{
 /* ?  scrollbar style -----------------------------------------------=============*/
 
 ::-webkit-scrollbar{
-  width: 13px;
+  width: 12px;
   
 }
 ::-webkit-scrollbar-track{
