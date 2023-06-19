@@ -6,9 +6,9 @@ var pool=require('./pool')
 router.get('/login', function(req, res, next) {
   res.render('loginpage', { message: '' });
 });
-router.get('/dashboard', function(req, res, next) {
-  res.render('dashboard', { message: '' });
-});
+// router.get('/dashboard', function(req, res, next) {
+//   res.render('dashboard', { message: '' });
+// });
 
 router.post('/check_admin_login',function(req,res){
   try{
@@ -16,14 +16,14 @@ router.post('/check_admin_login',function(req,res){
       if(error)
       {
         res.render('loginpage',{message:'Database Error'});
-        console.log("result dblll:",error);
+        // console.log("result dblll:",error);
       }
       else
       {
         if(result.length==1)
         {
-          res.render("dashboard");
-          console.log("result dblll:",result);
+          res.render("dashboard",{data:result[0]});
+          // console.log("result dblll:",result);
         }
         else
         {

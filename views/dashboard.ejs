@@ -9,7 +9,13 @@
     box-sizing: border-box;
     font-family: sans-serif;
   }
+
+  body{
+  position: relative;
+}
+
 /*   box style ----------------------------------------------=======-=============*/
+
 .maincontainer{
     display: flex;
     gap:10px;
@@ -17,9 +23,15 @@
     height: 100%;
     width: 100%;
 }
-body{
-  position: relative;
+.box{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
 }
+
+/*   box child style ----------------------------------------------=======-=============*/
+
 .heading{
   background:linear-gradient( to right bottom,#f9768e , #fe998b);
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
@@ -29,13 +41,30 @@ body{
   top: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-inline:60px ;
 }
-.box{
+.adminData{
   display: flex;
-  width: 100%;
-  height: 100vh;
-  justify-content: space-between;
+  gap: 10px;
+}
+.adminName
+{
+  display: flex;
+  flex-direction: column;
+}
+.adminName i{
+  color: #555;
+  font-size: 14px;
+}
+.adminData p{
+    color: #212121;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.adminData img{
+  width: 40px;
+  border-radius: 30px;
 }
 
 .left-col{
@@ -58,15 +87,17 @@ body{
   box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   border-radius:3px;
 }
+
+/* !Links Styles=====================----------------- */
 a{
   text-decoration: none;
   color: #212121;
 }
-a:hover{
+.left-col a:hover{
   background-color: rgba(214, 214, 214, .7);
   color: #d14e4e;
 }
-a:active{
+.left-col a:active{
   background-color: rgba(214, 214, 214, .7);
   color: #212121;
 }
@@ -86,29 +117,54 @@ a:active{
 
     <div class="heading">
       <img src="/images/bookmyshow.png" height="65px">
+
+      <div class="adminData">
+        <img src="/images/<%=data.picture%>">
+
+        <div class="adminName">
+          <p><%=data.adminname%></p>
+          <i><%=data.emailid%></i>
+        </div>
+
+        <a href="/admin/login">
+            <i class="fa-solid fa-power-off" style="color: rgb(90, 88, 88);font-size: 38px; margin-left: 30px;"></i>
+        </a>
+      </div>
+
     </div>
 
     <div class="box">
 
       <div class="left-col">
+
         <a href="#" >
-          <div class="link">Dashboard
+          <div class="link">
+            Dashboard
             <i class="fa-solid fa-house"></i>
           </div>
         </a>
+
         <a href="/movie/listyourshow" target="frame">
           <div class="link">
             List Your Show
             <i class="fa-solid fa-circle-plus"></i>
           </div>
         </a>
+
         <a href="/movie/fetch_all_show" target="frame">
           <div class="link">
             Display All Show
             <i class="fa-solid fa-display"></i>
-            
           </div>
         </a>
+
+        <a href="/admin/login">
+          <div class="link">
+            Logout
+            <i class="fa-solid fa-power-off"></i>
+          </div>
+        </a>
+
       </div>
 
       <div class="right-col">
