@@ -2,11 +2,27 @@ var express = require('express');
 var router = express.Router();
 const pool=require('./pool');
 const upload=require('./multer');
-const fs=require("fs")
+const fs=require("fs");
+const LocalStorage=require('node-localstorage').LocalStorage;
+      localStorage=new LocalStorage('./scratch');
 
 /* GET movielisting page. */
 router.get('/listyourshow', function(req, res, next) {
-  res.render('movielisting',{message:''});
+  try{
+    var admin=JSON.parse(localStorage.getItem('ADMIN'));
+    if(admin==null || admin==undefined)
+    {
+      res.render('loginpage',{message:''})
+    }
+    else
+    {
+      res.render('movielisting',{message:''});
+    }
+  }
+  catch(e)
+  {
+    res.render("loginpage",{message:''})
+  }
 });
 
 router.post('/datasubmited',upload.single('poster'),function(req,res){
@@ -112,6 +128,11 @@ router.get('/fetch_screen',function(req,res){
 
 router.get("/fetch_all_show",function(req,res){
   try{
+    var admin=JSON.parse(localStorage.getItem('ADMIN'));
+    if(admin==null || admin==undefined)
+    {
+      res.render('loginpage',{message:''})
+    }
     pool.query('select M.*,(select S.statename from state S where S.stateid=M.stateid) as statename, (select C.cityname from city C where C.cityid=M.cityid) as cityname,(select CI.cinemaname from cinema CI where CI.cinemaid=M.cinemaid) as cinemaname,(select CI.cinemalogo from cinema CI where CI.cinemaid=M.cinemaid) as cinemalogo,(select SC.screenname from screen SC where SC.screenid=M.screenid) as screenname from movies M',function(error,result){
       if(error){
         console.log("Dabase Error",error);
@@ -126,7 +147,7 @@ router.get("/fetch_all_show",function(req,res){
   catch(e)
   {
     console.log("Error",e);
-    req.render("displayallshow",{data:[],message:'server error'})
+    req.render("loginpage",{data:[],message:'server error'})
   }
 })
 

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var pool=require('./pool')
+var pool=require('./pool');
+var LocalStorage=require('node-localstorage').LocalStorage;
+localStorage=new LocalStorage('./scratch')
 
 /* GET home page. */
 router.get('/login', function(req, res, next) {
@@ -22,6 +24,7 @@ router.post('/check_admin_login',function(req,res){
       {
         if(result.length==1)
         {
+          localStorage.setItem('ADMIN',JSON.stringify(result[0]))
           res.render("dashboard",{data:result[0]});
           // console.log("result dblll:",result);
         }
@@ -38,4 +41,8 @@ router.post('/check_admin_login',function(req,res){
   }
 })
 
+router.get('/logout',function(req,res){
+  localStorage.clear()
+  res.render('loginpage',{message:''})
+})
 module.exports = router;
