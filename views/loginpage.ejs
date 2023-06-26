@@ -86,6 +86,27 @@
   border-radius: 2px;
   border-width: 1.5px;
 }
+/* Input Style ===================]]]]]]]========---------------------*/
+.input{
+  border:none;
+  outline: none;
+  width: 260px;
+  height: 38px;
+  margin-left:4px ;
+  font-size: 18px;
+  font-weight: 500;
+}
+.input-div{
+  border: 1px solid black;
+  width: auto;
+  margin-left:12px ;
+  border-radius: 2px;
+  padding-block: 1px;
+  padding-right: 0 !important;
+}
+.input-div i{
+  color: #174a84;
+}
 
 </style>
 
@@ -108,14 +129,16 @@
         <form action="/admin/check_admin_login" method="post">
 
           <div class="row  gap">
-            <div class="col-md-12">
-              <input required type="text" class="form-control" placeholder="Phone or Email" name="email">
+            <div class="col-md-12 input-div">
+              <i class="fa-solid fa-user"></i>
+              <input required type="text" class="input" placeholder="Phone or Email" name="email">
             </div>
           </div>
 
           <div class="row ">
-            <div class="col-md-12">
-              <input required type="password" class="form-control" placeholder="Password" name="password">
+            <div class="col-md-12 input-div">
+              <i class="fa-solid fa-lock"></i>
+              <input required type="password" class="input" placeholder="Password" name="password">
             </div>
           </div>
 
